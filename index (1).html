@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative AI Club</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: white;
+            color: #004b5c; /* Dark Cyan for text */
+        }
+
+        header {
+            background-color: #004b5c; /* Dark Cyan */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        nav button {
+            background: #002f3b; /* Dark Blue */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav button:hover {
+            background: #004b5c; /* Dark Cyan */
+            transform: scale(1.05);
+        }
+
+        section {
+            display: none;
+            padding: 40px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInSection 1s forwards;
+        }
+
+        section.active {
+            display: block;
+            opacity: 1;
+        }
+
+        footer {
+            background: #002f3b; /* Dark Blue */
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Team grid styling */
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            animation: fadeInSection 2s forwards;
+        }
+
+        .team-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 230px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+            background: #f2f2f2;
+        }
+
+        .team-card h3 {
+            color: #004b5c; /* Dark Cyan */
+        }
+
+        .team-card .email {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 8px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .team-card:hover .email {
+            opacity: 1;
+        }
+
+        /* Button link styling */
+        a.button {
+            display: inline-block;
+            background: #004b5c; /* Dark Cyan */
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        a.button:hover {
+            background: #002f3b; /* Dark Blue */
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInSection {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Generative AI Club</h1>
+        <nav>
+            <button onclick="showSection('home')">Home</button>
+            <button onclick="showSection('about')">About</button>
+            <button onclick="showSection('team')">Meet the Team</button>
+            <button onclick="showSection('signup')">Sign-Up</button>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="active">
+        <h2>Welcome to the Generative AI Club</h2>
+        <p>Explore how AI is transforming industries and creating new opportunities.</p>
+        <p>Use the navigation above to learn more about the club, meet the team, or sign up!</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>What is this club for?</h2>
+        <p>
+            Unlock the Future with Generative AI!<br><br>
+            Are you curious about how AI is shaping the world around us? Want to learn the skills that are transforming industries and creating new opportunities? Join us for an exciting journey into the world of Generative AI!
+        </p>
+        <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+            <li>Learn from Experts: Get insights from seasoned professionals in AI.</li>
+            <li>Hands-On Experience: Work on projects that apply AI to real-world challenges.</li>
+            <li>Build Your Portfolio: Create a showcase of your AI-driven creations.</li>
+            <li>Network with Peers: Connect with a community of like-minded enthusiasts.</li>
+        </ul>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <h2>Meet the Team</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <h3>Shaurya Mishra</h3>
+                <p>President</p>
+                <div class="email">Shauryakumarmishra@gmail.com</div>
+            </div>
+            <div class="team-card">
+                <h3>Pranav Jetti</h3>
+                <p>Vice President</p>
+                <div class="email">pranavjetti10@gmail.com</div>
+            </div>
+            <div class="team-card">
+                <h3>Adarsh Vytla</h3>
+                <p>Vice President</p>
+                <div class="email">adarsh.vytla1234@gmail.com</div>
+            </div>
+            <div class="team-card">
+                <h3>Sarvesh Subbiah</h3>
+                <p>Secretary</p>
+                <div class="email">sarveshsubbiah10@gmail.com</div>
+            </div>
+            <div class="team-card">
+                <h3>Arnav Jain</h3>
+                <p>Secretary</p>
+                <div class="email">Arnavjain415@gmail.com</div>
+            </div>
+            <div class="team-card">
+                <h3>Samhith Yadamakanti</h3>
+                <p>Event Coordinator</p>
+                <div class="email">dragonsrulelol1@gmail.com</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sign-Up Section -->
+    <section id="signup">
+        <h2>Sign Up</h2>
+        <p>Click the button below to join the Generative AI Club:</p>
+        <a class="button" href="https://forms.gle/5CoRS94z7ejDV3uP7" target="_blank">Sign Up Now</a>
+    </section>
+
+    <footer>
+        © 2024 Generative AI Club
+    </footer>
+
+    <script>
+        // Function to show the selected section
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active');
+        }
+    </script>
+</body>
+</html
